@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UaMapModule } from './shared/components/ua-map/ua-map.module';
+import { RouterModule } from '@angular/router';
+import { HeaderModule } from '@core/components/header/header.module';
 
 @NgModule({
     declarations: [
@@ -14,7 +14,9 @@ import { UaMapModule } from './shared/components/ua-map/ua-map.module';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        UaMapModule
+        RouterModule,
+        AppRoutingModule,
+        HeaderModule
     ],
     providers: [],
     bootstrap: [ AppComponent ]

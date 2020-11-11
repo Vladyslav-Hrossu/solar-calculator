@@ -1,5 +1,5 @@
 export enum UKRAINE_REGIONS {
-    Crimea,
+    Crimea = 1000,
     CherkasyOblast,
     ChernihivOblast,
     ChernivtsiOblast,
