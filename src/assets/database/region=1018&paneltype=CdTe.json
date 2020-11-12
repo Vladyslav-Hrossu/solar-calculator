@@ -1,0 +1,158 @@
+{
+  "inputs": {
+    "location": {
+      "latitude": 50.883,
+      "longitude": 34.766,
+      "elevation": 163.0
+    },
+    "meteo_data": {
+      "radiation_db": "PVGIS-SARAH",
+      "meteo_db": "ERA-Interim",
+      "year_min": 2005,
+      "year_max": 2016,
+      "use_horizon": true,
+      "horizon_db": "DEM-calculated"
+    },
+    "mounting_system": {
+      "fixed": {
+        "slope": {
+          "value": 37,
+          "optimal": true
+        },
+        "azimuth": {
+          "value": 0,
+          "optimal": true
+        },
+        "type": "building-integrated"
+      }
+    },
+    "pv_module": {
+      "technology": "CdTe",
+      "peak_power": 1.0,
+      "system_loss": 0.0
+    },
+    "economic_data": {
+      "system_cost": null,
+      "interest": null,
+      "lifetime": null
+    }
+  },
+  "outputs": {
+    "monthly": {
+      "fixed": [
+        {
+          "month": 1,
+          "E_d": 1.2,
+          "E_m": 37.33,
+          "H(i)_d": 1.3,
+          "H(i)_m": 40.18,
+          "SD_m": 16.56
+        },
+        {
+          "month": 2,
+          "E_d": 2.08,
+          "E_m": 58.25,
+          "H(i)_d": 2.2,
+          "H(i)_m": 61.71,
+          "SD_m": 19.85
+        },
+        {
+          "month": 3,
+          "E_d": 2.68,
+          "E_m": 83.04,
+          "H(i)_d": 2.87,
+          "H(i)_m": 88.91,
+          "SD_m": 27.87
+        },
+        {
+          "month": 4,
+          "E_d": 4.26,
+          "E_m": 127.79,
+          "H(i)_d": 4.65,
+          "H(i)_m": 139.37,
+          "SD_m": 18.58
+        },
+        {
+          "month": 5,
+          "E_d": 5.27,
+          "E_m": 163.4,
+          "H(i)_d": 5.81,
+          "H(i)_m": 180.23,
+          "SD_m": 15.07
+        },
+        {
+          "month": 6,
+          "E_d": 5.52,
+          "E_m": 165.57,
+          "H(i)_d": 6.06,
+          "H(i)_m": 181.75,
+          "SD_m": 10.97
+        },
+        {
+          "month": 7,
+          "E_d": 5.4,
+          "E_m": 167.5,
+          "H(i)_d": 5.95,
+          "H(i)_m": 184.31,
+          "SD_m": 9.94
+        },
+        {
+          "month": 8,
+          "E_d": 5.28,
+          "E_m": 163.73,
+          "H(i)_d": 5.78,
+          "H(i)_m": 179.21,
+          "SD_m": 16.39
+        },
+        {
+          "month": 9,
+          "E_d": 4.12,
+          "E_m": 123.57,
+          "H(i)_d": 4.39,
+          "H(i)_m": 131.77,
+          "SD_m": 23.91
+        },
+        {
+          "month": 10,
+          "E_d": 2.59,
+          "E_m": 80.18,
+          "H(i)_d": 2.75,
+          "H(i)_m": 85.16,
+          "SD_m": 22.41
+        },
+        {
+          "month": 11,
+          "E_d": 1.14,
+          "E_m": 34.18,
+          "H(i)_d": 1.28,
+          "H(i)_m": 38.29,
+          "SD_m": 8.03
+        },
+        {
+          "month": 12,
+          "E_d": 0.7,
+          "E_m": 21.64,
+          "H(i)_d": 0.82,
+          "H(i)_m": 25.39,
+          "SD_m": 4.44
+        }
+      ]
+    },
+    "totals": {
+      "fixed": {
+        "E_d": 3.36,
+        "E_m": 102.18,
+        "E_y": 1226.17,
+        "H(i)_d": 3.66,
+        "H(i)_m": 111.36,
+        "H(i)_y": 1336.29,
+        "SD_m": 6.98,
+        "SD_y": 83.8,
+        "l_aoi": -2.85,
+        "l_spec": "2.11",
+        "l_tg": -7.5,
+        "l_total": -8.24
+      }
+    }
+  }
+}
