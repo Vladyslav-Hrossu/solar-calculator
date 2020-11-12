@@ -1,36 +1,32 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.model';
+import { UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.models';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AbstractFormComponent } from '@shared/classes/abstract-form-component';
-import { SolarDatabaseService } from '@core/services/solar-database.service';
+import { SOLAR_PANELS } from '@models/solar-panel.models';
+import { SolarCalculatorFacadeService } from '@pages/calculator/services/solar-calculator-facade.service';
 
 @Component({
     selector: 'app-calculator-form',
     templateUrl: './calculator-form.component.html',
     styleUrls: [ './calculator-form.component.scss' ],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [ SolarDatabaseService ]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalculatorFormComponent extends AbstractFormComponent implements OnInit {
     uaDisplayRegions = UKRAINE_REGIONS_DISPLAY;
-    panelTypeOptions = [
-        { name: 'Crystalline Silicone', value: 'srystSi' },
-        { name: 'CIS', value: 'CIS' },
-        { name: 'CdTe', value: 'CdTe' },
-    ];
+    panelTypeOptions = SOLAR_PANELS;
 
     constructor(
         private fb: FormBuilder,
-        private solarDataService: SolarDatabaseService
+        private solarCalcService: SolarCalculatorFacadeService
     ) {
         super();
     }
 
     calculateSolarEnergy(): void {
         if (this.form.valid) {
-            this.solarDataService.getSolarData(this.form.get('map').value, this.form.get('panelsType').value)
+            this.solarCalcService.getSolarData(this.form.get('map').value, this.form.get('panelsType').value)
                 .subscribe(data => {
-                    console.log(data);
+                    this.solarCalcService.updateSolarData(data);
                 });
         }
     }

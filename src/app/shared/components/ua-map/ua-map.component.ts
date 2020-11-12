@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, forwardRef, OnInit, Self } from '@angular/core';
-import { UKRAINE_REGIONS, UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.model';
+import { UKRAINE_REGIONS, UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.models';
 import { NgOnDestroy } from '@core/services/ng-on-destroy.service';
 import { AbstractControl, ControlValueAccessor, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 
