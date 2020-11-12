@@ -1,0 +1,50 @@
+@import "src/styles/variables";
+
+.container {
+    height: 93vh;
+    width: 100vw;
+    background-size: cover;
+    background-image: url(../../../assets/img/main-page-bg.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    .info-item {
+        margin-top: 20px;
+    }
+
+    .title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 60px;
+        color: white;
+    }
+
+    .description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 30px;
+        color: white;
+    }
+
+    .button {
+        height: 60px;
+        width: 240px;
+        background: rgba($main-yellow, 0.8);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 30px;
+        cursor: pointer;
+        outline: none;
+
+        &:hover {
+            background-color: $main-yellow;
+            transition: background-color 0.3s ease-in-out;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UKRAINE_REGIONS } from '@models/ukraine-regions.const';
+import { UKRAINE_REGIONS, UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.const';
 
 @Component({
     selector: 'app-ua-map',
@@ -8,6 +8,8 @@ import { UKRAINE_REGIONS } from '@models/ukraine-regions.const';
 })
 export class UaMapComponent implements OnInit {
     uaRegions = UKRAINE_REGIONS;
+    uaRegionsDisplay = UKRAINE_REGIONS_DISPLAY;
+    selectedRegion = null;
 
     constructor() {
     }
@@ -16,6 +18,10 @@ export class UaMapComponent implements OnInit {
     }
 
     onClick({ target: { id } }): void {
-        console.log(id);
+        this.selectedRegion = +id;
+    }
+
+    isRegionSelected(regionId: UKRAINE_REGIONS): boolean {
+        return regionId === this.selectedRegion;
     }
 }

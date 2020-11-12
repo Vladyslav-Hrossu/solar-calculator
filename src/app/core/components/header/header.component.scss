@@ -1,0 +1,39 @@
+@import "src/styles/variables";
+
+.header {
+    background-color: $main-gray;
+    display: flex;
+    justify-content: space-between;
+
+    .logo-container {
+        padding: 0 4vw;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-menu {
+        height: 100%;
+        list-style: none;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10vw;
+
+        .nav-menu-item {
+            display: inline-block;
+            padding: 2.25vh 2vw;
+            cursor: pointer;
+            font-size: 2.5vh;
+            line-height: 2.5vh;
+            text-decoration: none;
+            color: white;
+        }
+
+        .active-link {
+            background-color: $main-yellow
+        }
+
+    }
+}
+

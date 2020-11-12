@@ -23,7 +23,9 @@ export enum UKRAINE_REGIONS {
     VolynOblast,
     ZakarpattiaOblast,
     ZaporizhzhiaOblast,
-    ZhytomyrOblast
+    ZhytomyrOblast,
+    Kyiv,
+    Sevastopol
 }
 
 
@@ -52,5 +54,7 @@ export const UKRAINE_REGIONS_DISPLAY = {
     [UKRAINE_REGIONS.VolynOblast]: 'Волинська область',
     [UKRAINE_REGIONS.ZakarpattiaOblast]: 'Закарпатська область',
     [UKRAINE_REGIONS.ZaporizhzhiaOblast]: 'Запорізька область',
-    [UKRAINE_REGIONS.ZhytomyrOblast]: 'Житомирська область'
+    [UKRAINE_REGIONS.ZhytomyrOblast]: 'Житомирська область',
+    [UKRAINE_REGIONS.Kyiv]: 'Київ',
+    [UKRAINE_REGIONS.Sevastopol]: 'Севастополь'
 };
