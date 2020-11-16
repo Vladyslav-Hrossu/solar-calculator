@@ -19,6 +19,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "echarts",
+              "zrender/lib/vml/vml",
+              "zrender/lib/svg/svg"
+            ],
             "outputPath": "dist/solar-calculator",
             "index": "src/index.html",
             "main": "src/main.ts",

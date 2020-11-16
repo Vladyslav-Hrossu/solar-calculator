@@ -1,5 +1,5 @@
 export enum SolarPanelTypes {
-    CrystallineSilicone = 'srystSi',
+    CrystallineSilicone = 'crystSi',
     CIS = 'CIS',
     CdTe = 'CdTe'
 }

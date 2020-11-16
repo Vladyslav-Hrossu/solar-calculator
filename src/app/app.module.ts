@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HeaderModule } from '@core/components/header/header.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         RouterModule,
         AppRoutingModule,
         HeaderModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        NgxEchartsModule.forRoot({
+            echarts: () => import('echarts')
+        })
     ],
     providers: [],
     bootstrap: [ AppComponent ]

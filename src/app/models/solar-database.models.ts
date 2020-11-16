@@ -40,15 +40,16 @@ export interface SolarDataOutputs {
 }
 
 export interface MonthlyOutputData {
-    month: number;
-    E_d: number;
-    E_m: number;
+    'month': number;
+    'E_d': number;
+    'E_m': number;
     'H(i)_d': number;
     'H(i)_m': number;
-    SD_m: number;
+    'SD_m': number;
 }
 
 export interface TotalOutputData extends MonthlyOutputData {
+    E_y: number;
     'H(i)_y': number;
     SD_y: number;
     l_aoi: number;

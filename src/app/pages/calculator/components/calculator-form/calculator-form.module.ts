@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { OutputDialogModule } from '@pages/calculator/components/output-dialog/output-dialog.module';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { MatButtonModule } from '@angular/material/button';
         ReactiveFormsModule,
         MatInputModule,
         MatSelectModule,
-        MatButtonModule
+        MatButtonModule,
+        MatDialogModule,
+        OutputDialogModule
     ],
     exports: [CalculatorFormComponent]
 })

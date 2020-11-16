@@ -1,26 +1,38 @@
 import { Injectable } from '@angular/core';
 import { SolarDatabaseService } from '@core/services/solar-database.service';
-import { UKRAINE_REGIONS } from '@models/ukraine-regions.models';
-import { SolarPanelTypes } from '@models/solar-panel.models';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { SolarData } from '@models/solar-database.models';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class SolarCalculatorFacadeService {
-    get state$(): Observable<SolarData> {
-        return this.state.asObservable();
-    }
-
-    private state: BehaviorSubject<SolarData> = new BehaviorSubject<SolarData>(null);
-
     constructor(private solarDataService: SolarDatabaseService) {
     }
 
-    getSolarData(region: UKRAINE_REGIONS, panelsType: SolarPanelTypes): Observable<SolarData> {
-        return this.solarDataService.getSolarData(region, panelsType);
-    }
-
-    updateSolarData(data: SolarData): void {
-        this.state.next(data);
+    getSolarData({ region, power, panelsType, efficiency, costs }): Observable<SolarData> {
+        // @ts-ignore
+        return this.solarDataService.getSolarData(region, panelsType)
+            .pipe(
+                map((data) => ({
+                    ...data,
+                    outputs: {
+                        ...data.outputs,
+                        monthly: {
+                            fixed: [
+                                ...data.outputs.monthly.fixed.map(item => ({
+                                    ...item,
+                                    E_m: Math.ceil(item.E_m * power * efficiency / 100)
+                                }))
+                            ]
+                        },
+                        totals: {
+                            fixed: {
+                                ...data.outputs.totals.fixed,
+                                E_y: Math.ceil(data.outputs.totals.fixed.E_y * power * efficiency / 100)
+                            }
+                        }
+                    }
+                }))
+            );
     }
 }

@@ -4,7 +4,7 @@ import { CalculatorComponent } from './calculator.component';
 import { CalculatorRoutingModule } from '@pages/calculator/calculator.routing.module';
 import { CalculatorFormModule } from '@pages/calculator/components/calculator-form/calculator-form.module';
 import { SolarCalculatorFacadeService } from '@pages/calculator/services/solar-calculator-facade.service';
-import { CalculatorOutputModule } from '@pages/calculator/components/calculator-output/calculator-output.module';
+import { OutputDialogModule } from '@pages/calculator/components/output-dialog/output-dialog.module';
 
 @NgModule({
     declarations: [ CalculatorComponent ],
@@ -12,7 +12,7 @@ import { CalculatorOutputModule } from '@pages/calculator/components/calculator-
         CommonModule,
         CalculatorRoutingModule,
         CalculatorFormModule,
-        CalculatorOutputModule
+        OutputDialogModule
     ],
     exports: [ CalculatorComponent ],
     providers: [ SolarCalculatorFacadeService ]

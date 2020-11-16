@@ -3,7 +3,8 @@ import { UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.models';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AbstractFormComponent } from '@shared/classes/abstract-form-component';
 import { SOLAR_PANELS } from '@models/solar-panel.models';
-import { SolarCalculatorFacadeService } from '@pages/calculator/services/solar-calculator-facade.service';
+import { MatDialog } from '@angular/material/dialog';
+import { OutputDialogComponent } from '@pages/calculator/components/output-dialog/output-dialog.component';
 
 @Component({
     selector: 'app-calculator-form',
@@ -17,28 +18,36 @@ export class CalculatorFormComponent extends AbstractFormComponent implements On
 
     constructor(
         private fb: FormBuilder,
-        private solarCalcService: SolarCalculatorFacadeService
+        public dialog: MatDialog
     ) {
         super();
     }
 
     calculateSolarEnergy(): void {
         if (this.form.valid) {
-            this.solarCalcService.getSolarData(this.form.get('map').value, this.form.get('panelsType').value)
-                .subscribe(data => {
-                    this.solarCalcService.updateSolarData(data);
-                });
+            this.openDialog();
         }
     }
 
     protected initForm(): void {
         this.form = this.fb.group({
-            map: [ null, [ Validators.required ] ],
-            power: [ null, [ Validators.required, Validators.min(0.1) ] ],
-            panelsType: [ null, [ Validators.required ] ],
+            region: [ 1001, [ Validators.required ] ],
+            power: [ 1, [ Validators.required, Validators.min(0.1) ] ],
+            panelsType: [ 'CdTe', [ Validators.required ] ],
             efficiency: [ 100, [ Validators.required, Validators.min(1), Validators.max(100) ] ],
-            costs: [ null, [ Validators.required, Validators.min(1) ] ]
+            costs: [ 1, [ Validators.required, Validators.min(1) ] ]
         });
     }
 
+    private openDialog(): void {
+        const dialogRef = this.dialog.open(OutputDialogComponent, {
+            data: this.form.value,
+            width: '1200px',
+            autoFocus: false
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log(`Dialog result: ${result}`);
+        });
+    }
 }

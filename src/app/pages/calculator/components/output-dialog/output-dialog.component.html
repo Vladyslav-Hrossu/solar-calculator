@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Calculations</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Solar Calculations">
+            <div echarts [options]="options"></div>
+            <h3>
+                Summary
+            </h3>
+            <div class="table-container">
+                <table mat-table [dataSource]="summaryData" class="solar-summary-table">
+                    <ng-container matColumnDef="Value">
+                        <th mat-header-cell *matHeaderCellDef>Value.</th>
+                        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Parameter">
+                        <th mat-header-cell *matHeaderCellDef> Parameter </th>
+                        <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedSummaryColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedSummaryColumns;"></tr>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Economic Calculations">
+            <div echarts [options]="economicOptions"></div>
+        </mat-tab>
+    </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

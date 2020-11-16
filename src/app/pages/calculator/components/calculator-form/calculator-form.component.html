@@ -1,11 +1,11 @@
 <form class="container" [formGroup]="form">
     <div class="map-container">
-        <app-ua-map formControlName="map"></app-ua-map>
+        <app-ua-map formControlName="region"></app-ua-map>
     </div>
-    <div *ngIf="form.get('map').value" class="display-region">
-        Selected region: {{uaDisplayRegions[form.get('map').value]}}
+    <div *ngIf="form.get('region').value" class="display-region">
+        Selected region: {{uaDisplayRegions[form.get('region').value]}}
     </div>
-    <div *ngIf="isFieldHasError('map', 'required')" class="display-region">
+    <div *ngIf="isFieldHasError('region', 'required')" class="display-region">
         Please, select region on the map!
     </div>
 
