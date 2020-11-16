@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderModule } from '@core/components/header/header.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { FooterModule } from '@core/components/footer/footer.module';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
         RouterModule,
         AppRoutingModule,
         HeaderModule,
+        FooterModule,
         BrowserAnimationsModule,
         NgxEchartsModule.forRoot({
             echarts: () => import('echarts')
