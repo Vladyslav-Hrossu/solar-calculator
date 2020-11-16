@@ -31,23 +31,19 @@ export class CalculatorFormComponent extends AbstractFormComponent implements On
 
     protected initForm(): void {
         this.form = this.fb.group({
-            region: [ 1001, [ Validators.required ] ],
-            power: [ 1, [ Validators.required, Validators.min(0.1) ] ],
-            panelsType: [ 'CdTe', [ Validators.required ] ],
+            region: [ null, [ Validators.required ] ],
+            power: [ null, [ Validators.required, Validators.min(0.1) ] ],
+            panelsType: [ '', [ Validators.required ] ],
             efficiency: [ 100, [ Validators.required, Validators.min(1), Validators.max(100) ] ],
-            costs: [ 1, [ Validators.required, Validators.min(1) ] ]
+            costs: [ null, [ Validators.required, Validators.min(1) ] ]
         });
     }
 
     private openDialog(): void {
-        const dialogRef = this.dialog.open(OutputDialogComponent, {
+        this.dialog.open(OutputDialogComponent, {
             data: this.form.value,
             width: '1200px',
             autoFocus: false
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            console.log(`Dialog result: ${result}`);
         });
     }
 }
