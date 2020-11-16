@@ -31,7 +31,7 @@ export class CalculatorFormComponent extends AbstractFormComponent implements On
 
     protected initForm(): void {
         this.form = this.fb.group({
-            region: [ null, [ Validators.required ] ],
+            region: [ 1007, [ Validators.required ] ],
             power: [ null, [ Validators.required, Validators.min(0.1) ] ],
             panelsType: [ '', [ Validators.required ] ],
             efficiency: [ 100, [ Validators.required, Validators.min(1), Validators.max(100) ] ],
