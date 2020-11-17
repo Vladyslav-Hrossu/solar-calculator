@@ -8,6 +8,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { OutputDialogModule } from '@pages/calculator/components/output-dialog/output-dialog.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { OutputDialogModule } from '@pages/calculator/components/output-dialog/o
         UaMapModule,
         ReactiveFormsModule,
         MatInputModule,
+        MatIconModule,
+        MatTooltipModule,
         MatSelectModule,
         MatButtonModule,
         MatDialogModule,

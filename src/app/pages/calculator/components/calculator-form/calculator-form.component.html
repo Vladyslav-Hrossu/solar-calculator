@@ -24,6 +24,13 @@
                     Value should be at least {{getFieldErrors('power')?.min?.min}} kW
                 </mat-error>
             </mat-form-field>
+            <mat-icon aria-hidden="false"
+                      aria-label="Help"
+                      matTooltipClass="custom-tooltip"
+                      matTooltip="Тут потрібно вказати загальну потужність всіх сонячних модулів"
+                      matTooltipShowDelay="300">
+                help_outline
+            </mat-icon>
         </div>
 
         <div class="form-field">
@@ -58,6 +65,13 @@
                     Value can't be more than {{getFieldErrors('efficiency')?.max?.max}} %
                 </mat-error>
             </mat-form-field>
+            <mat-icon aria-hidden="false"
+                      aria-label="Help"
+                      matTooltipClass="custom-tooltip"
+                      matTooltip="Тут потрібно вказати ККД інвертора. Він може бути знайдений в технічних характеристиках вибраного інвертора (Зазвичай ККД складає 92-94%)"
+                      matTooltipShowDelay="300">
+                help_outline
+            </mat-icon>
         </div>
 
         <div class="form-field">
@@ -73,8 +87,15 @@
                     Value can't be less than {{getFieldErrors('costs')?.min?.min}} $
                 </mat-error>
             </mat-form-field>
+            <mat-icon aria-hidden="false"
+                      aria-label="Help"
+                      matTooltipClass="custom-tooltip"
+                      matTooltip="Вираховується автоматично від потужності модулів. Це загальні витрати на встановлення сонячної електростанції: загальна ціна всих фотомодулів, ціна інвертора, вартість каркасу та встановлення, транспортні витрати та витрати на налаштування станції"
+                      matTooltipShowDelay="300">
+                help_outline
+            </mat-icon>
         </div>
 
     </div>
-    <button mat-raised-button color="primary" type="submit" class="" (click)="calculateSolarEnergy()">Calculate</button>
+    <button mat-raised-button color="primary" type="submit" (click)="calculateSolarEnergy()">Calculate</button>
 </form>

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UKRAINE_REGIONS_DISPLAY } from '@models/ukraine-regions.models';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AbstractFormComponent } from '@shared/classes/abstract-form-component';
-import { SOLAR_PANELS } from '@models/solar-panel.models';
+import { SOLAR_PANELS, SolarPanelTypes } from '@models/solar-panel.models';
 import { MatDialog } from '@angular/material/dialog';
 import { OutputDialogComponent } from '@pages/calculator/components/output-dialog/output-dialog.component';
 
@@ -23,6 +23,12 @@ export class CalculatorFormComponent extends AbstractFormComponent implements On
         super();
     }
 
+    ngOnInit(): void {
+        super.ngOnInit();
+        this.form.get('power').valueChanges
+            .subscribe(power => this.form.get('costs').setValue(Math.ceil(power * 1000 / 3 + 1200 + 1200 + 350 + 1600 + 200 )));
+    }
+
     calculateSolarEnergy(): void {
         if (this.form.valid) {
             this.openDialog();
@@ -32,10 +38,10 @@ export class CalculatorFormComponent extends AbstractFormComponent implements On
     protected initForm(): void {
         this.form = this.fb.group({
             region: [ 1007, [ Validators.required ] ],
-            power: [ null, [ Validators.required, Validators.min(0.1) ] ],
-            panelsType: [ '', [ Validators.required ] ],
-            efficiency: [ 100, [ Validators.required, Validators.min(1), Validators.max(100) ] ],
-            costs: [ null, [ Validators.required, Validators.min(1) ] ]
+            power: [ 10, [ Validators.required, Validators.min(0.1) ] ],
+            panelsType: [ SolarPanelTypes.CrystallineSilicone, [ Validators.required ] ],
+            efficiency: [ 93, [ Validators.required, Validators.min(1), Validators.max(100) ] ],
+            costs: [ 7884, [ Validators.required, Validators.min(1) ] ]
         });
     }
 
